@@ -26,6 +26,7 @@ public class TweetsPublishService {
 
   @Scheduled(initialDelay = 5000, fixedDelay = 280000)
   public void publishTwitterData() {
+    log.info("Start to search recent tweets!");
     twitterClient.getRecentTweets()
         .ifPresent(this::retrieveRecentTweetsUrls);
   }
