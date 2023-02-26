@@ -38,6 +38,7 @@ public class TwitterClient {
     HttpEntity<?> entity = new HttpEntity<>(httpHeaders);
     ResponseEntity<TwitterResponse> response = restTemplate.exchange(builder.toUriString(), HttpMethod.GET, entity,
         TwitterResponse.class);
+    log.info("Twitter response is {}", response);
     if (response.getStatusCode().equals(HttpStatus.NO_CONTENT)) {
       return Optional.empty();
     }
